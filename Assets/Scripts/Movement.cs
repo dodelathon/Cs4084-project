@@ -15,7 +15,7 @@ public class Movement : MonoBehaviour {
 
 	void Update ()
     {
-        Vector3 motion = new Vector3(CrossPlatformInputManager.GetAxis("Horizontal"), CrossPlatformInputManager.GetAxis("Vertical"), 0);
+        Vector3 motion = new Vector3(CrossPlatformInputManager.GetAxis("Horizontal") * -1, CrossPlatformInputManager.GetAxis("Vertical"), 0);
         motion = motion.normalized * Time.deltaTime * speed;
         rb.MovePosition(transform.position + motion);
         
