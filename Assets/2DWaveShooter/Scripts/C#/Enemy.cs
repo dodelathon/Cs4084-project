@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Enemy : MonoBehaviour {
+public class Enemy : MonoBehaviour
+{
 	
 	public int curHp;				//The enemy's current health
 	public int maxHp; 				//The enemy's maximum health
@@ -25,7 +26,6 @@ public class Enemy : MonoBehaviour {
 	
 	void Start ()
 	{
-		target = GameObject.Find("box");
 		moveSpeed = Random.Range(moveSpeed, moveSpeed + 5);
 		asource.volume = PlayerPrefs.GetFloat("Volume");
 	}
@@ -37,7 +37,8 @@ public class Enemy : MonoBehaviour {
 		attackTimer += 1.0f * Time.deltaTime;
 		dist = Vector2.Distance(transform.position, target.transform.position);
 		
-		if(curHp <= 0){
+		if(curHp <= 0)
+        {
 			Destroy(gameObject);
 			Game.score += scoreToGive;
 			Player.money += moneyToGive;
@@ -48,8 +49,11 @@ public class Enemy : MonoBehaviour {
 	{
 		if(dist > attackDist){
 			transform.position = Vector2.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
-		}else{
-			if(attackTimer >= attackRate){
+		}
+        else
+        {
+			if(attackTimer >= attackRate)
+            {
 				attackTimer = 0.0f;
 				Attack();
 			}
@@ -71,5 +75,13 @@ public class Enemy : MonoBehaviour {
 		GameObject b = Instantiate(blood, transform.position, transform.rotation) as GameObject;
 		Destroy(b, 0.2f);
 	}
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "bullet(Clone)")
+        {
+            Damaged(5);
+        }
+    }
 
 }
