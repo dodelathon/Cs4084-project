@@ -45,7 +45,7 @@ public class Rot_Fire : MonoBehaviour
         //print(bulletCount.Length);
         var bullet = (GameObject)Instantiate(bulletPrefab, bulletSpawn.position, new Quaternion (0, 0, Mathf.Atan2(CrossPlatformInputManager.GetAxis("rot_Hoz"), CrossPlatformInputManager.GetAxis("rot_Vert")) * Mathf.Rad2Deg * -1, 0));
 
-       // bullet.GetComponent<Rigidbody2D>().MoveRotation(Mathf.Atan2(CrossPlatformInputManager.GetAxis("rot_Hoz"), CrossPlatformInputManager.GetAxis("rot_Vert")) * Mathf.Rad2Deg * -1);
+        bullet.GetComponent<Rigidbody2D>().MoveRotation(Mathf.Atan2(CrossPlatformInputManager.GetAxis("rot_Hoz"), CrossPlatformInputManager.GetAxis("rot_Vert")) * Mathf.Rad2Deg * -1);
         bullet.GetComponent<Rigidbody2D>().velocity = bulletSpawn.transform.up * bulletSpeed;
 
         Destroy(bullet, 2.0f);
