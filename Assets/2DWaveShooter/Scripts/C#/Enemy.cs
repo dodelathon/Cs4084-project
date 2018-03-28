@@ -19,10 +19,12 @@ public class Enemy : MonoBehaviour
 	
 	public GameObject target;		//The GameObject of which the enemy will move towards and attack
 	public GameObject blood;		//The blood effect which will be instantiated once the enemy is hit
+    public GameObject attackBlock;
+    public Transform attackSpawn;
 	
 	//Audio
 	public AudioSource asource;		//The enemy's AudioSource which sounds will be played through
-	public AudioClip hitSound;		//The audio clip that will be played when the enemy gets damaged
+	public AudioClip hitSound;		//The audio clip that will be played when the enemy gets damage
 	
 	void Start ()
 	{
@@ -40,8 +42,6 @@ public class Enemy : MonoBehaviour
 		if(curHp <= 0)
         {
 			Destroy(gameObject);
-			Game.score += scoreToGive;
-			Player.money += moneyToGive;
 		}
 	}
 	
@@ -65,8 +65,8 @@ public class Enemy : MonoBehaviour
 	
 	void Attack ()
 	{
-		target.SendMessage("Damaged", damage);
-	}
+        var attack = (GameObject)Instantiate(attackBlock, attackSpawn.position, transform.rotation);
+        Destroy(attack, 0.2f);    }
 	
 	public void Damaged (int dmg)
 	{
@@ -82,6 +82,21 @@ public class Enemy : MonoBehaviour
         {
             Damaged(5);
         }
+        else if(collision.gameObject.name == "Player")
+        {
+            Attack();
+        }
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "Player")
+        {
+            if (attackTimer > 2)
+            {
+                Attack();
+            }
+
+        }
+    }
 }

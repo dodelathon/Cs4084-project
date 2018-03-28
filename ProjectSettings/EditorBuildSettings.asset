@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/boxTest.unity
     guid: a6ffbcc81d61b6f4a9f8b4ee0af8fb29
+  - enabled: 1
+    path: Assets/Scenes/Level_1.unity
+    guid: c6e2d3a472bc5724090afb1827c7f007
