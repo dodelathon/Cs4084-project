@@ -46,7 +46,7 @@ public class Game : MonoBehaviour {
 			
 			if(pickupRateTimer >= pickupRate){
 				pickupRateTimer = 0.0f;
-				SpawnPickup();
+				//SpawnPickup();
 			}
 			
 			if(curWaveTime <= 0){
@@ -98,7 +98,7 @@ public class Game : MonoBehaviour {
 		prevSpawn = ranSpawn;
 	}
 	
-	void SpawnPickup ()
+	/* void SpawnPickup ()
 	{
 		Vector3 pos = new Vector3(0,0,0);
 		int pickup;
@@ -109,7 +109,7 @@ public class Game : MonoBehaviour {
 		pickup = Random.Range(0, pickups.Length);
 		
 		Instantiate(pickups[pickup], pos, transform.rotation);
-	}
+	}*/
 	
 	public void GoToMenu ()
 	{
