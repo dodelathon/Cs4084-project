@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
     private Transform camTrans;
     private Transform camDesiredLookAt;
     private const float CameraTransitionSpeed = 3.0f;
+
     private void Start()
     {
         camTrans = Camera.main.transform;
