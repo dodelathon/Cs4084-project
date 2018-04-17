@@ -44,5 +44,9 @@ public class MainMenu : MonoBehaviour
     {
         camDesiredLookAt = menuTrans;
     }
+    public void loadCamera()
+    {
+        SceneManager.LoadScene(2);
+    }
 
 }
