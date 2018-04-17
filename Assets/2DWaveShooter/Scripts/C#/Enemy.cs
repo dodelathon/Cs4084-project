@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
 	public int scoreToGive;			//The score that will be added once the enemy is killed
 	public int moneyToGive;			//The money that will be added once the enemy is killed
 	
-	public GameObject target;		//The GameObject of which the enemy will move towards and attack
+	private GameObject target;		//The GameObject of which the enemy will move towards and attack
 	public GameObject blood;		//The blood effect which will be instantiated once the enemy is hit
     public GameObject attackBlock;
     public Transform attackSpawn;
@@ -30,6 +30,7 @@ public class Enemy : MonoBehaviour
 	{
 		moveSpeed = Random.Range(moveSpeed, moveSpeed + 5);
 		asource.volume = PlayerPrefs.GetFloat("Volume");
+        target = GameObject.FindGameObjectWithTag("Alive");
 	}
 	
 	void Update ()

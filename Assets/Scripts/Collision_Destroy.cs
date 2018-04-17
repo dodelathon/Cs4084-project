@@ -19,7 +19,11 @@ public class Collision_Destroy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "FastZombie")
+        if (collision.gameObject.name == "FastZombie(Clone)")
+        {
+            Destroy(gameObject);
+        }
+        else if(collision.gameObject.name == "Walls")
         {
             Destroy(gameObject);
         }

@@ -52,4 +52,12 @@ public class Barrel : MonoBehaviour {
 	{
 		durability -= dmg;
 	}
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "bullet(Clone)")
+        {
+            Damaged(5);
+        }
+    }
 }
