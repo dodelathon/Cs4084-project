@@ -222,12 +222,10 @@ MonoBehaviour:
   maxHp: 30
   moveSpeed: 55
   damage: 5
-  attackDist: 25
+  attackDist: 20
   attackRate: 0.5
   dist: 0
   scoreToGive: 30
-  moneyToGive: 25
-  target: {fileID: 0}
   blood: {fileID: 145264, guid: 5ed79befc9d661540a12deeea7dbf082, type: 2}
   attackBlock: {fileID: 1352582691504206, guid: 850aa017f9854b446b67c17788727daa,
     type: 2}

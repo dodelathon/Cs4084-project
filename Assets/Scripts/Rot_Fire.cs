@@ -8,6 +8,10 @@ public class Rot_Fire : MonoBehaviour
     Rigidbody2D rb;
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
+
+    public AudioSource asource;     
+    public AudioClip shotSound;      
+
     public float bulletSpeed;
     private float Timer;
     public float timeAdjust;
@@ -15,29 +19,23 @@ public class Rot_Fire : MonoBehaviour
     void Start ()
     {
         rb = GetComponent<Rigidbody2D>();
+        //asource.volume = PlayerPrefs.GetFloat("Volume");
     }
 
 
 	void FixedUpdate ()
     {
         Timer -= Time.deltaTime;
-        if (CrossPlatformInputManager.GetAxis("rot_Vert") == 0 && CrossPlatformInputManager.GetAxis("rot_Hoz") == 0)
+        if (!(CrossPlatformInputManager.GetAxis("rot_Vert") == 0 && CrossPlatformInputManager.GetAxis("rot_Hoz") == 0))
         {
-            //rb.MoveRotation(0.0f);
-        }
-        else
-        {
-            
             if (Timer < 0.0f)
             {
                 Timer = timeAdjust;
                 fire();
             }
-            
-            rb.MoveRotation(Mathf.Atan2(CrossPlatformInputManager.GetAxis("rot_Hoz"), CrossPlatformInputManager.GetAxis("rot_Vert")) * Mathf.Rad2Deg);
 
+            rb.MoveRotation(Mathf.Atan2(CrossPlatformInputManager.GetAxis("rot_Hoz"), CrossPlatformInputManager.GetAxis("rot_Vert")) * Mathf.Rad2Deg);
         }
-        
     }
 
     void fire()
@@ -47,6 +45,7 @@ public class Rot_Fire : MonoBehaviour
 
         bullet.GetComponent<Rigidbody2D>().MoveRotation(Mathf.Atan2(CrossPlatformInputManager.GetAxis("rot_Hoz"), CrossPlatformInputManager.GetAxis("rot_Vert")) * Mathf.Rad2Deg);
         bullet.GetComponent<Rigidbody2D>().velocity = bulletSpawn.transform.up * bulletSpeed;
+        asource.PlayOneShot(shotSound);
 
         Destroy(bullet, 2.0f);
     }

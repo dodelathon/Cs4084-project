@@ -27,5 +27,13 @@ public class Collision_Destroy : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        else if (collision.gameObject.name == "HealthBox(Clone)")
+        {
+            Destroy(gameObject);
+        }
+        else if (collision.gameObject.name == "bullet(Clone)")
+        {
+            Destroy(gameObject);
+        }
     }
 }

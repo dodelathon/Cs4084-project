@@ -8,6 +8,10 @@ TagManager:
   - Alive
   - Barrel
   - Zombie
+  - ZombieSpawn
+  - HealthSpawn
+  - DisplayText
+  - Health
   layers:
   - Default
   - TransparentFX
