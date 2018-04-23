@@ -65,20 +65,10 @@ public class Camera1 : MonoBehaviour {
         snapshot.SetPixels(frontCam.GetPixels());
         background.texture = snapshot;
         snapshot.Apply();
-        StartCoroutine(CaptureTextureAsPNG());
+        byte[] photoData = snapshot.EncodeToPNG();
+
+        File.WriteAllBytes(Application.dataPath + "/AvatarPhoto.png", photoData);
+
         ++_CaptureCounter;
-    }
-    IEnumerator CaptureTextureAsPNG()
-    {
-        yield return new WaitForEndOfFrame();
-        Texture2D _TextureFromCamera = new Texture2D(GetComponent<Renderer>().material.mainTexture.width,
-        GetComponent<Renderer>().material.mainTexture.height);
-        _TextureFromCamera.SetPixels((GetComponent<Renderer>().material.mainTexture as WebCamTexture).GetPixels());
-        _TextureFromCamera.Apply();
-        byte[] bytes = _TextureFromCamera.EncodeToPNG();
-        string filePath = "SavedScreen1.png";
-
-        File.WriteAllBytes(filePath, bytes);
-
     }
 }
