@@ -10,13 +10,12 @@ public class playerHealth : MonoBehaviour {
     public int health;
     public Slider healthSlider;
     private GameObject gameController;
-    private GameObject keeper;
 
     // Use this for initialization
     void Start ()
     {
-        gameController =  GameObject.Find("GameController");
-        keeper = GameObject.Find("ScoreKeeper");
+        gameController =  GameObject.FindGameObjectWithTag("GameController");
+       
 	}
 	
 	// Update is called once per frame
@@ -24,6 +23,7 @@ public class playerHealth : MonoBehaviour {
     {
         if(health <= 0)
         {
+            Debug.Log(ScoreContainer.container);
             ScoreContainer.container.addScore(gameController.GetComponent<GameController>().getScore());
             Destroy(gameObject);
             Handheld.Vibrate();

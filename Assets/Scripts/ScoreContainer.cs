@@ -17,22 +17,24 @@ public class ScoreContainer : MonoBehaviour
     // Use this for initialization
     void Awake ()
     {
+        Debug.Log(container);
         if(container == null)
         {
             container = this;
+            Debug.Log(container);
             DontDestroyOnLoad(gameObject);
+
         }
         else if(container != this)
         {
             Destroy(gameObject);
         }
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    void Update()
     {
-		
-	}
+        
+    }
 
     public void save()
     {
@@ -125,8 +127,8 @@ class ScoreData
     public ScoreData(List<int> nScore, int nKill, int nHGath)
     {
         scores = nScore;
-        this.addKills(nKill);
-        this.addGatheredH(nHGath);
+        addKills(nKill);
+        addGatheredH(nHGath);
     }
 
     public void addScore(int nScore)

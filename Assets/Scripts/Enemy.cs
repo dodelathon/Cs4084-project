@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour
         asource.volume = PlayerPrefs.GetFloat("Volume");
         target = GameObject.FindGameObjectWithTag("Alive");
         Controller = GameObject.FindGameObjectWithTag("GameController");
+
     }
 
     void Update()

@@ -18,6 +18,7 @@ public class UpdateLeaderboard : MonoBehaviour
         kills.text = "Kills: " + ScoreContainer.container.getKill();
         HighestScore.text = "HighScore: " + holder[0];
         holder = null;
-        GatheredHealth.text = "Health Gathered" + ScoreContainer.container.getHGath();
+        GatheredHealth.text = "Health Gathered: " + ScoreContainer.container.getHGath();
+        ScoreContainer.container.save();
 	}
 }
