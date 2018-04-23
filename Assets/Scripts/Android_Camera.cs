@@ -44,11 +44,11 @@ public class Android_Camera : MonoBehaviour {
     {
         if (!camAvalible)
             return;
+
         float ratio = (float)frontCam.width / (float)frontCam.height;
         fit.aspectRatio = ratio;
         float scaleY = frontCam.videoVerticallyMirrored ? -1f: 1f;
         background.rectTransform.localScale = new Vector3(1f, scaleY, 1f);
-
         int orient = -frontCam.videoRotationAngle;
         background.rectTransform.localEulerAngles = new Vector3(0, 0, orient);
     }
