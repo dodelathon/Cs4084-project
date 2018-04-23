@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "386269068755",
+    "firebase_url": "https://shoot-of-hordes.firebaseio.com",
+    "project_id": "shoot-of-hordes",
+    "storage_bucket": "shoot-of-hordes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:386269068755:android:bb2b293d6103331f",
+        "android_client_info": {
+          "package_name": "com.daire.shootofhordes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "386269068755-5quu6bqnue0pqeljdqfiqd2li68102p3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHUsFeNTbolDDhT2Uc8_rgq7CqjfUwHIc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
