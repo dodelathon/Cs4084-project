@@ -9,11 +9,14 @@ public class playerHealth : MonoBehaviour {
 
     public int health;
     public Slider healthSlider;
+    private GameObject gameController;
+    private GameObject keeper;
 
     // Use this for initialization
     void Start ()
     {
-		
+        gameController =  GameObject.Find("GameController");
+        keeper = GameObject.Find("ScoreKeeper");
 	}
 	
 	// Update is called once per frame
@@ -21,9 +24,10 @@ public class playerHealth : MonoBehaviour {
     {
         if(health <= 0)
         {
+            ScoreContainer.container.addScore(gameController.GetComponent<GameController>().getScore());
             Destroy(gameObject);
             Handheld.Vibrate();
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("LeaderBoard");
         }
 	}
 
@@ -48,10 +52,12 @@ public class playerHealth : MonoBehaviour {
             {
                 amount = (health + amount) - 100;
                 health += amount;
+                ScoreContainer.container.addGatheredH(amount);
             }
             else
             {
                 health += amount;
+                ScoreContainer.container.addGatheredH(amount);
             }
             updateSlider();
         }

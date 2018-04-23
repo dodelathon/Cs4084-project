@@ -88,6 +88,11 @@ public class GameController : MonoBehaviour {
         updateDisplay();
     }
 
+    public int getScore()
+    {
+        return score;
+    }
+
     //Update the in game display. 
     void updateDisplay()
     {

@@ -43,6 +43,7 @@ public class Enemy : MonoBehaviour
 
         if (curHp <= 0)
         {
+            ScoreContainer.container.addKills(1);
             Controller.GetComponent<GameController>().updateScore(scoreToGive);
             Destroy(gameObject);
         }
