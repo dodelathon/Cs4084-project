@@ -40,7 +40,8 @@ GameObject:
   - component: {fileID: 114136559417237334}
   - component: {fileID: 114915408291903686}
   - component: {fileID: 114841912023298220}
-  - component: {fileID: 82012539377499040}
+  - component: {fileID: 82001641652863048}
+  - component: {fileID: 81801766153532226}
   m_Layer: 0
   m_Name: Player
   m_TagString: Alive
@@ -162,7 +163,14 @@ PolygonCollider2D:
       - {x: 1.5121672, y: 11.594057}
       - {x: 0.49862027, y: 12.597876}
       - {x: -0.49863338, y: 12.59791}
---- !u!82 &82012539377499040
+--- !u!81 &81801766153532226
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1371536677911482}
+  m_Enabled: 1
+--- !u!82 &82001641652863048
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -173,8 +181,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.08
-  m_Pitch: -0.5
+  m_Volume: 0.2
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -229,13 +237,13 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 0
+    m_RotationOrder: 4
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0.64
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -281,7 +289,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1864550949881282, guid: 86fc21210f87de642b5f415de83959aa,
     type: 2}
   bulletSpawn: {fileID: 4915835626190494}
-  asource: {fileID: 82012539377499040}
+  asource: {fileID: 82001641652863048}
   shotSound: {fileID: 8300000, guid: 6279fc83a9e3952489eee7b01643ac67, type: 3}
   bulletSpeed: 150
   timeAdjust: 0.15
