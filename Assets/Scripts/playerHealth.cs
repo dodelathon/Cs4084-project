@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class playerHealth : MonoBehaviour {
 
 
     public int health;
-   // public GameObject Player = GameObject.FindGameObjectWithTag("Player");
+    public Slider healthSlider;
 
     // Use this for initialization
     void Start ()
@@ -31,6 +32,34 @@ public class playerHealth : MonoBehaviour {
         if(collision.gameObject.name == "attackBlock(Clone)")
         {
             health -= 5;
+            updateSlider();
         }
     }
+
+    public void addHealth(int amount)
+    {
+        if(health == 100)
+        {
+            amount = 0;
+        }
+        else
+        {
+            if(health + amount > 100)
+            {
+                amount = (health + amount) - 100;
+                health += amount;
+            }
+            else
+            {
+                health += amount;
+            }
+            updateSlider();
+        }
+    }
+
+    void updateSlider()
+    {
+        healthSlider.value = health;
+    }
 }
+
