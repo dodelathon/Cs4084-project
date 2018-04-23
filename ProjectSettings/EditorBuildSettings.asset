@@ -17,3 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Camera.unity
     guid: 4fe1907f2d0a1e84a85f02c4d0af0dae
+  - enabled: 1
+    path: Assets/Scenes/create_account.unity
+    guid: 6823416e6018a5642924fffb8837ea81
