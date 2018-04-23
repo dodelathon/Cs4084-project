@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
     public GameObject levelbtnContainer;
     private Transform camTrans;
     private Transform camDesiredLookAt;
-    private const float CameraTransitionSpeed = 3.0f;
+    private const float CameraTransitionSpeed = 10.0f;
 
     private void Start()
     {
